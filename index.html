@@ -37,6 +37,34 @@
 </code></pre>
 
 <hr><h1>
+<a name="implement-your-model" class="anchor" href="#implement-your-model"><span class="octicon octicon-link"></span></a>Implement your Model</h1>
+
+<p>Every models in your application extends from <strong>Woof</strong> class. Afterward you must define attributes in attributeRule() and set database, table name and other in initialize() as example</p>
+
+<pre><code>class foo extends Woof
+{
+  protected function attributeRule()
+  {
+    return array(
+      // Define id field and set Primary key
+      array('name'=&gt;'id', 'pk'=&gt;true),
+      array('name'=&gt;'fname'),
+      array('name'=&gt;'sname')
+    );
+  }
+  protected function initialize()
+  {
+    // Set select database
+    $this-&gt;db = 'default'
+    // Set table name
+    $this-&gt;db = 'foo'
+  }
+}
+</code></pre>
+
+<p>Note:</p>
+
+<hr><h1>
 <a name="crud" class="anchor" href="#crud"><span class="octicon octicon-link"></span></a>CRUD</h1>
 
 <h3>
