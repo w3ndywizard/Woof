@@ -32,6 +32,11 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
+<a name="whats-woof" class="anchor" href="#whats-woof"><span class="octicon octicon-link"></span></a>What's Woof?</h1>
+
+<p>Woof is custom model for Codeigniter which's provides comfortable methods that easy to use, short and absolutely it's flexible.</p>
+
+<hr><h1>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
 
 <p>Copy file <strong>Woof.php</strong> to libraries folder and set auto load library in <strong>config/autoload.php</strong></p>
@@ -42,7 +47,7 @@
 <hr><h1>
 <a name="implement-your-model" class="anchor" href="#implement-your-model"><span class="octicon octicon-link"></span></a>Implement your Model</h1>
 
-<p>Every models in your application extends from <strong>Woof</strong> class. Afterward you must define attributes in attributeRule() and set database, table name and other in initialize() as example</p>
+<p>Every models in your application extends from <strong>Woof</strong> class. Afterward you must define attributes in attributeRule() and set database, table name and other in initialize() as example.</p>
 
 <pre><code>class foo extends Woof
 {
@@ -65,12 +70,12 @@
 }
 </code></pre>
 
-<p><strong>Note:</strong> The <strong>pk</strong> is sign to indicate that attribute is primary key. It'll combine with another method such as <em>findByPk()</em>, <em>updateByPk()</em>, <em>deleteByPk()</em> if you not set those method will not work. By the way you can set pk attribute through <strong>pkField</strong> attribute in initialize()</p>
+<p><strong>Note:</strong> The <strong>pk</strong> is sign to indicate that attribute is primary key. It'll combine with another method such as <em>findByPk()</em>, <em>updateByPk()</em>, <em>deleteByPk()</em> if you not set those method will not work. By the way you can set pk attribute through <strong>pkField</strong> attribute in initialize().</p>
 
 <hr><h1>
 <a name="crud" class="anchor" href="#crud"><span class="octicon octicon-link"></span></a>CRUD</h1>
 
-<p>CRUD is basic function that interacting with database, It contains four functions such as CREATE, READ, UPDATE and DELETE</p>
+<p>CRUD is basic function that interacting with database, It contains four functions such as CREATE, READ, UPDATE and DELETE.</p>
 
 <h3>
 <a name="insert" class="anchor" href="#insert"><span class="octicon octicon-link"></span></a>insert()</h3>
