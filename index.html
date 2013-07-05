@@ -34,7 +34,7 @@
         <h1>
 <a name="whats-woof" class="anchor" href="#whats-woof"><span class="octicon octicon-link"></span></a>What's Woof?</h1>
 
-<p>Woof is custom model for Codeigniter which's provides comfortable methods that easy to use, short and absolutely it's flexible.</p>
+<p>Woof is custom model for Codeigniter which's provides comfortable methods such as CRUD. It'll take an easy to use, short and absolutely it's flexible.</p>
 
 <hr><h1>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
@@ -70,7 +70,7 @@
 }
 </code></pre>
 
-<p><strong>Note:</strong> The <strong>pk</strong> is sign to indicate that attribute is primary key. It'll combine with another method such as <em>findByPk()</em>, <em>updateByPk()</em>, <em>deleteByPk()</em> if you not set those method will not work. By the way you can set pk attribute through <strong>pkField</strong> attribute in initialize().</p>
+<p><strong>Note:</strong> <strong>pk</strong> is sign to indicate that attribute is primary key. It'll combine with another method such as <em>findByPk()</em>, <em>updateByPk()</em>, <em>deleteByPk()</em> if you not set those method will not work. By the way you can set pk attribute through <strong>pkField</strong> attribute in initialize().</p>
 
 <hr><h1>
 <a name="crud" class="anchor" href="#crud"><span class="octicon octicon-link"></span></a>CRUD</h1>
@@ -319,7 +319,7 @@ $this-&gt;foo-&gt;findBySql(‘SELECT * FROM foo’);
 
 <p>Get last SQL queryl command</p>
 
-<h1>
+<hr><h1>
 <a name="how-to-define-command" class="anchor" href="#how-to-define-command"><span class="octicon octicon-link"></span></a>How to define command</h1>
 
 <p>You can direct access to db object which's Active Record object of Codeigniter and add command to query. By the way, there are several ways to assign command or condition by using Array or Criteria that hold your command. And now I'll show three ways how to assign command to query data.</p>
@@ -383,7 +383,25 @@ $obj-&gt;where = ‘field1 = 1’;
 <li>order_by</li>
 <li>limit</li>
 <li>offset</li>
-</ul><p>**Note: ** If you notice, Nearly all of commands refer to Codeigniter's Active Record object. You can reference object <a href="http://ellislab.com/codeigniter/user-guide/database/active_record.html">in this source</a>.</p>
+</ul><p><strong>Note:</strong> If you notice, Nearly all of commands refer to Codeigniter's Active Record object. You can reference object <a href="http://ellislab.com/codeigniter/user-guide/database/active_record.html">in this source</a>.</p>
+
+<hr><ul>
+<li>Binding Foreign Key
+Woof provide </li>
+</ul><pre><code>$this-&gt;load-&gt;model('person');
+$row = $this-&gt;person-&gt;findByPk(1);
+
+echo $row-&gt;id . '&lt;br /&gt;';
+echo $row-&gt;fname . ' ' . $row-&gt;sname . '&lt;br /&gt;';
+
+/*
+ * Suppose state_id is foreign key from state table and contain three fields
+ * state_id, state_code and state_name.
+ */
+
+// Just add () to make attribute to method
+echo $row-&gt;state_id()-&gt;state_id . ' ' . $row-&gt;state_id()-&gt;state_name; // 1 texas
+</code></pre>
       </section>
     </div>
 
