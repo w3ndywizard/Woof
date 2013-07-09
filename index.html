@@ -358,16 +358,43 @@ $obj-&gt;select = ‘*’;
 $obj-&gt;where = ‘field1 = 1’;
 </code></pre>
 
-<p><strong>List of command</strong>
-        command             parameter           default                      format</p>
+<h2>
+<a name="list-of-command" class="anchor" href="#list-of-command"><span class="octicon octicon-link"></span></a>List of command</h2>
+
+<h3>
+<a name="select" class="anchor" href="#select"><span class="octicon octicon-link"></span></a>select</h3>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;select = 'field1, field2, field3';
+$obj-&gt;select = array('field1, 'field2', 'field3');
+</code></pre>
+
+<h3>
+<a name="distinct" class="anchor" href="#distinct"><span class="octicon octicon-link"></span></a>distinct</h3>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;distinct = true; // default false
+</code></pre>
+
+<h3>
+<a name="like" class="anchor" href="#like"><span class="octicon octicon-link"></span></a>like</h3>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;like = 'field1 : %value%';
+// use before, after or both
+$obj-&gt;like = 'field1 : value : before';
+</code></pre>
 
 <ul>
-<li>select                      mixed</li>
-<li>distinct                    bool               false</li>
-<li>like                       string                             field : value [: both|left|right]</li>
-<li>or_like                    string                                            ""</li>
-<li>not_like                   string                                            ""</li>
-<li>or_not_like                string                                            ""</li>
+<li>or_like</li>
+<li>not_like</li>
+<li>or_not_like</li>
 <li>join</li>
 <li>left</li>
 <li>right</li>
