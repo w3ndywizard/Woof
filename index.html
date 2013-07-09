@@ -512,19 +512,148 @@ $obj-&gt;left_outer = 'table2 : table2.id = table1.id';
 $obj-&gt;right_outer = 'table2 : table2.id = table1.id';
 </code></pre>
 
-<ul>
-<li>where</li>
-<li>or_where</li>
-<li>where_in</li>
-<li>where_not_in</li>
-<li>or_where_not_in</li>
-<li>group_by</li>
-<li>having</li>
-<li>or_having</li>
-<li>order_by</li>
-<li>limit</li>
-<li>offset</li>
-</ul><hr><h1>
+<h3>
+<a name="where" class="anchor" href="#where"><span class="octicon octicon-link"></span></a>where</h3>
+
+<p>Set where conditions.</p>
+
+<pre><code>$command = array(
+  array('where' =&gt; 'field1 = value')
+);
+
+// Add multiple
+$command = array(
+  array('where' =&gt; 'field1 = value1'),
+  array('where' =&gt; 'field2 != value2')
+);
+</code></pre>
+
+<h3>
+<a name="or_where" class="anchor" href="#or_where"><span class="octicon octicon-link"></span></a>or_where</h3>
+
+<p>Set where conditions and add "OR" operator.</p>
+
+<pre><code>$command = array(
+  array('or_where' =&gt; 'field1 = value1')
+);
+</code></pre>
+
+<h3>
+<a name="where_in" class="anchor" href="#where_in"><span class="octicon octicon-link"></span></a>where_in</h3>
+
+<p>Set IN condition.</p>
+
+<pre><code>// Array format
+$command = array(
+  array('where_in' =&gt; 'field : (value1, value2, value3)')
+);
+
+// Criteria format
+$obj = new Criteria;
+$obj-&gt;where_in = 'field : (value1, value2, value3)';
+
+</code></pre>
+
+<h3>
+<a name="where_not_in" class="anchor" href="#where_not_in"><span class="octicon octicon-link"></span></a>where_not_in</h3>
+
+<p>Set NOT IN condition.</p>
+
+<pre><code>$command = array(
+  array('where_not_in' =&gt; 'field : (value1, value2, value3)')
+);
+</code></pre>
+
+<h3>
+<a name="or_where_not_in" class="anchor" href="#or_where_not_in"><span class="octicon octicon-link"></span></a>or_where_not_in</h3>
+
+<p>Set NOT IN condition and add "OR" operator.</p>
+
+<pre><code>$command = array(
+  array('or_where_not_in' =&gt; 'field : (value1, value2, value3)');
+);
+</code></pre>
+
+<h3>
+<a name="group_by" class="anchor" href="#group_by"><span class="octicon octicon-link"></span></a>group_by</h3>
+
+<p>Group result by field.</p>
+
+<pre><code>$command = array(
+  array('group_by' =&gt; 'field1');
+);
+
+// Multiple field
+$command = array(
+  array('group_by' =&gt; array('field1', 'field2'))
+);
+</code></pre>
+
+<h3>
+<a name="having" class="anchor" href="#having"><span class="octicon octicon-link"></span></a>having</h3>
+
+<p>Set having command.</p>
+
+<pre><code>$command = array(
+  array('having' =&gt; 'field : value')
+);
+
+// Set prevent escaping
+$command = array(
+  array('having' =&gt; 'field : value : true')
+);
+</code></pre>
+
+<h3>
+<a name="or_having" class="anchor" href="#or_having"><span class="octicon octicon-link"></span></a>or_having</h3>
+
+<p>Set having command and add "OR" operator</p>
+
+<pre><code>$command = array(
+  array('or_having' =&gt; 'field : value')
+);
+</code></pre>
+
+<h3>
+<a name="order_by" class="anchor" href="#order_by"><span class="octicon octicon-link"></span></a>order_by</h3>
+
+<p>Order by specific field</p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;order_by = 'field ASC';
+
+// Multiple fields
+$obj = new Criteria;
+$obj-&gt;order_by = 'field1 ASC, field2 DESC';
+</code></pre>
+
+<h3>
+<a name="limit" class="anchor" href="#limit"><span class="octicon octicon-link"></span></a>limit</h3>
+
+<p>Limit number of record.</p>
+
+<pre><code>$command = array(
+  'limit' =&gt; 10
+);
+
+// Limit 20 rows and set start index at 10
+$command = array(
+  'limit' =&gt; '20, 10'
+);
+</code></pre>
+
+<h3>
+<a name="offset" class="anchor" href="#offset"><span class="octicon octicon-link"></span></a>offset</h3>
+
+<p>Set start index.</p>
+
+<p>// Equality "limit =&gt; '10,5'"
+$command = array(
+  'limit' =&gt; 10,
+  'offset' =&gt; 5
+);</p>
+
+<hr><h1>
 <a name="binding-foreign-key" class="anchor" href="#binding-foreign-key"><span class="octicon octicon-link"></span></a>Binding Foreign Key</h1>
 
 <p>Woof provide functional</p>
