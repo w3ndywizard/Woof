@@ -334,6 +334,8 @@ $this-&gt;foo-&gt;db()-&gt;select(‘*’);
 $this-&gt;foo-&gt;db()-&gt;where(‘field1 = 1’);
 </code></pre>
 
+<p><strong>Note:</strong> If you notice, Nearly all of commands refer to Codeigniter's Active Record object. You can reference object <a href="http://ellislab.com/codeigniter/user-guide/database/active_record.html">in this source</a>.</p>
+
 <h3>
 <a name="2-use-array" class="anchor" href="#2-use-array"><span class="octicon octicon-link"></span></a>2) Use Array</h3>
 
@@ -383,9 +385,7 @@ $obj-&gt;where = ‘field1 = 1’;
 <li>order_by</li>
 <li>limit</li>
 <li>offset</li>
-</ul><p><strong>Note:</strong> If you notice, Nearly all of commands refer to Codeigniter's Active Record object. You can reference object <a href="http://ellislab.com/codeigniter/user-guide/database/active_record.html">in this source</a>.</p>
-
-<hr><h1>
+</ul><hr><h1>
 <a name="binding-foreign-key" class="anchor" href="#binding-foreign-key"><span class="octicon octicon-link"></span></a>Binding Foreign Key</h1>
 
 <p>Woof provide functional</p>
@@ -420,9 +420,9 @@ echo $row-&gt;state_id()-&gt;state_id . ' ' . $row-&gt;state_id()-&gt;state_name
       array('name'=&gt;'fname'),
       array('name'=&gt;'sname'),
       array('name'=&gt;'state_id', 'fk'=&gt;array(
-                                            'class'=&gt;'state', // related class
-                                            'destAttr'=&gt;'state_id' // related field
-                                            )                                            
+                                'class'=&gt;'state', // related class
+                                'destAttr'=&gt;'state_id' // related field
+                               )                                            
     );
   }
 
