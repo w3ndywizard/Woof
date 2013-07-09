@@ -47,7 +47,7 @@
 <hr><h1>
 <a name="implement-your-model" class="anchor" href="#implement-your-model"><span class="octicon octicon-link"></span></a>Implement your Model</h1>
 
-<p>Every models in your application extends from <strong>Woof</strong> class. Afterward you must define attributes in attributeRule() and set database, table name and other in initialize() as example.</p>
+<p>Every models in your application must extends from <strong>Woof</strong> class. Afterward you must define attributes in attributeRule() and set database, table name and other in initialize() as example.</p>
 
 <pre><code>class foo extends Woof
 {
@@ -341,10 +341,10 @@ $this-&gt;foo-&gt;db()-&gt;where(‘field1 = 1’);
 
 <p>You can assign command by using multiple array. The commands contain many of arrays which has different key that represent command to query data.</p>
 
-<pre><code>array = (
-    array(‘select’ =&gt; ‘*’),
-    array(‘where’ =&gt; ‘field1 = 1’)
-);
+<pre><code>$criteria = array = (
+          array(‘select’ =&gt; ‘*’),
+          array(‘where’ =&gt; ‘field1 = 1’)
+            );
 </code></pre>
 
 <h3>
@@ -517,12 +517,12 @@ $obj-&gt;right_outer = 'table2 : table2.id = table1.id';
 
 <p>Set where conditions.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('where' =&gt; 'field1 = value')
 );
 
 // Add multiple
-$command = array(
+$criteria = array(
   array('where' =&gt; 'field1 = value1'),
   array('where' =&gt; 'field2 != value2')
 );
@@ -533,7 +533,7 @@ $command = array(
 
 <p>Set where conditions and add "OR" operator.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('or_where' =&gt; 'field1 = value1')
 );
 </code></pre>
@@ -544,7 +544,7 @@ $command = array(
 <p>Set IN condition.</p>
 
 <pre><code>// Array format
-$command = array(
+$criteria = array(
   array('where_in' =&gt; 'field : (value1, value2, value3)')
 );
 
@@ -559,7 +559,7 @@ $obj-&gt;where_in = 'field : (value1, value2, value3)';
 
 <p>Set NOT IN condition.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('where_not_in' =&gt; 'field : (value1, value2, value3)')
 );
 </code></pre>
@@ -569,7 +569,7 @@ $obj-&gt;where_in = 'field : (value1, value2, value3)';
 
 <p>Set NOT IN condition and add "OR" operator.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('or_where_not_in' =&gt; 'field : (value1, value2, value3)');
 );
 </code></pre>
@@ -579,12 +579,12 @@ $obj-&gt;where_in = 'field : (value1, value2, value3)';
 
 <p>Group result by field.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('group_by' =&gt; 'field1');
 );
 
 // Multiple field
-$command = array(
+$criteria = array(
   array('group_by' =&gt; array('field1', 'field2'))
 );
 </code></pre>
@@ -594,12 +594,12 @@ $command = array(
 
 <p>Set having command.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('having' =&gt; 'field : value')
 );
 
 // Set prevent escaping
-$command = array(
+$criteria = array(
   array('having' =&gt; 'field : value : true')
 );
 </code></pre>
@@ -609,7 +609,7 @@ $command = array(
 
 <p>Set having command and add "OR" operator</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   array('or_having' =&gt; 'field : value')
 );
 </code></pre>
@@ -632,12 +632,12 @@ $obj-&gt;order_by = 'field1 ASC, field2 DESC';
 
 <p>Limit number of record.</p>
 
-<pre><code>$command = array(
+<pre><code>$criteria = array(
   'limit' =&gt; 10
 );
 
 // Limit 20 rows and set start index at 10
-$command = array(
+$criteria = array(
   'limit' =&gt; '20, 10'
 );
 </code></pre>
@@ -647,11 +647,12 @@ $command = array(
 
 <p>Set start index.</p>
 
-<p>// Equality "limit =&gt; '10,5'"
-$command = array(
+<pre><code>// Equality "limit =&gt; '10,5'"
+$criteria = array(
   'limit' =&gt; 10,
   'offset' =&gt; 5
-);</p>
+);
+</code></pre>
 
 <hr><h1>
 <a name="binding-foreign-key" class="anchor" href="#binding-foreign-key"><span class="octicon octicon-link"></span></a>Binding Foreign Key</h1>
