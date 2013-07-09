@@ -364,6 +364,8 @@ $obj-&gt;where = ‘field1 = 1’;
 <h3>
 <a name="select" class="anchor" href="#select"><span class="octicon octicon-link"></span></a>select</h3>
 
+<p>Select field members.</p>
+
 <p><em>Parameter format</em></p>
 
 <pre><code>$obj = new Criteria;
@@ -374,6 +376,8 @@ $obj-&gt;select = array('field1, 'field2', 'field3');
 <h3>
 <a name="distinct" class="anchor" href="#distinct"><span class="octicon octicon-link"></span></a>distinct</h3>
 
+<p>Distinct value.</p>
+
 <p><em>Parameter format</em></p>
 
 <pre><code>$obj = new Criteria;
@@ -383,25 +387,132 @@ $obj-&gt;distinct = true; // default false
 <h3>
 <a name="like" class="anchor" href="#like"><span class="octicon octicon-link"></span></a>like</h3>
 
+<p>Search value by keyword.</p>
+
 <p><em>Parameter format</em></p>
 
 <pre><code>$obj = new Criteria;
 $obj-&gt;like = 'field1 : %value%';
-// use before, after or both
-$obj-&gt;like = 'field1 : value : before';
+$obj-&gt;like = 'field1 : value : before'; // use before, after or both
+</code></pre>
+
+<h3>
+<a name="or_like" class="anchor" href="#or_like"><span class="octicon octicon-link"></span></a>or_like</h3>
+
+<p>Search value by keyword and add "OR" operator.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;or_like = 'field1 : %value%';
+$obj-&gt;or_like = 'field1 : value : before'; // use before, after or both
+</code></pre>
+
+<h3>
+<a name="not_like" class="anchor" href="#not_like"><span class="octicon octicon-link"></span></a>not_like</h3>
+
+<p>Search value not in specific keyword.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;not_like = 'field1 : %value%';
+$obj-&gt;not_like = 'field1 : value : before'; // use before, after or both
+</code></pre>
+
+<h3>
+<a name="or_not_like" class="anchor" href="#or_not_like"><span class="octicon octicon-link"></span></a>or_not_like</h3>
+
+<p>Search value not in specific keyword and add "OR" operator.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;or_not_like = 'field1 : %value%';
+$obj-&gt;or_not_like = 'field1 : value : before'; // use before, after or both
+</code></pre>
+
+<h3>
+<a name="join" class="anchor" href="#join"><span class="octicon octicon-link"></span></a>join</h3>
+
+<p>Join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;join = 'table2 : table2.id = table1.id';
+
+// use join optional e.g. left, right, outer, inner, left outer and right outer
+$obj-&gt;join = 'table : table2.id = table1.id : left';
+</code></pre>
+
+<h3>
+<a name="left" class="anchor" href="#left"><span class="octicon octicon-link"></span></a>left</h3>
+
+<p>Left join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;left = 'table2 : table2.id = table1.id';
+</code></pre>
+
+<h3>
+<a name="right" class="anchor" href="#right"><span class="octicon octicon-link"></span></a>right</h3>
+
+<p>Right join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;right = 'table2 : table2.id = table1.id';
+</code></pre>
+
+<h3>
+<a name="outer" class="anchor" href="#outer"><span class="octicon octicon-link"></span></a>outer</h3>
+
+<p>Outer join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;outer = 'table2 : table2.id = table1.id';
+</code></pre>
+
+<h3>
+<a name="inner" class="anchor" href="#inner"><span class="octicon octicon-link"></span></a>inner</h3>
+
+<p>Inner join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;inner = 'table2 : table2.id = table1.id';
+</code></pre>
+
+<h3>
+<a name="left_outer" class="anchor" href="#left_outer"><span class="octicon octicon-link"></span></a>left_outer</h3>
+
+<p>Left outer join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;left_outer = 'table2 : table2.id = table1.id';
+</code></pre>
+
+<h3>
+<a name="right_outer" class="anchor" href="#right_outer"><span class="octicon octicon-link"></span></a>right_outer</h3>
+
+<p>Right outer join table.</p>
+
+<p><em>Parameter format</em></p>
+
+<pre><code>$obj = new Criteria;
+$obj-&gt;right_outer = 'table2 : table2.id = table1.id';
 </code></pre>
 
 <ul>
-<li>or_like</li>
-<li>not_like</li>
-<li>or_not_like</li>
-<li>join</li>
-<li>left</li>
-<li>right</li>
-<li>outer</li>
-<li>inner</li>
-<li>left_outer</li>
-<li>right_outer</li>
 <li>where</li>
 <li>or_where</li>
 <li>where_in</li>
