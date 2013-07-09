@@ -358,15 +358,16 @@ $obj-&gt;select = ‘*’;
 $obj-&gt;where = ‘field1 = 1’;
 </code></pre>
 
-<p><strong>List of command</strong></p>
+<p><strong>List of command</strong>
+        command             parameter           default                      format</p>
 
 <ul>
-<li>select</li>
-<li>distinct</li>
-<li>like</li>
-<li>or_like</li>
-<li>not_like</li>
-<li>or_not_like</li>
+<li>select                      mixed</li>
+<li>distinct                    bool               false</li>
+<li>like                       string                             field : value [: both|left|right]</li>
+<li>or_like                    string                                            ""</li>
+<li>not_like                   string                                            ""</li>
+<li>or_not_like                string                                            ""</li>
 <li>join</li>
 <li>left</li>
 <li>right</li>
