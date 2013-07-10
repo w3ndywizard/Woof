@@ -851,7 +851,7 @@
 		 * @param	criteria | array	Query commands		
 		 * @return	boolean	 
 		 */
-		function update($command)
+		function update($command=null)
 		{
 			return $this->ARupdate($this->assignAttrs, $command);
 		}		
@@ -876,7 +876,7 @@
 		 * @param	criteria | array	Query commands
 		 * @return	boolean
 		 */
-		function delete($command)
+		function delete($command=null)
 		{
 			return $this->ARdelete($command);
 		}
@@ -1100,8 +1100,13 @@
 					if (isset($attr['pk']) && $attr['pk'] == TRUE)
 						$this->pkField = $attr['name'];
 					// Set Foreign key
-					if (isset($attr['fk']))						
-						$this->bindFK($attr['name'], $attr['fk']['destAttr'], $attr['fk']['class'], $attr['fk']['path']);
+					if (isset($attr['fk'])){
+						$path = '';
+						if (isset($attr['fk']['path']))
+							$path = $attr['fk']['path'];
+											
+						$this->bindFK($attr['name'], $attr['fk']['destAttr'], $attr['fk']['class'], $path);
+					}
 					
 				}
 			}	
@@ -1170,7 +1175,7 @@
 	class Woof extends WModel
 	{
 		function __construct($useDefaultResult=TRUE)
-		{
+		{			
 			parent::__construct($useDefaultResult);
 		}
 	}
