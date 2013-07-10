@@ -327,8 +327,8 @@ $this-&gt;foo-&gt;findBySql(‘SELECT * FROM foo’);
 <p>The <strong>db</strong> is Active Record object’s Codeigniter. You can access through <strong>db()</strong> method to assign command.</p>
 
 <pre><code>$this-&gt;load-&gt;model(‘foo’);
-$this-&gt;foo-&gt;db()-&gt;select(‘*’);
-$this-&gt;foo-&gt;db()-&gt;where(‘field1 = 1’);
+$this-&gt;foo-&gt;db-&gt;select(‘*’);
+$this-&gt;foo-&gt;db-&gt;where(‘field1 = 1’);
 </code></pre>
 
 <p><strong>Note:</strong> If you notice, Nearly all of commands refer to Codeigniter's Active Record object. You can reference object <a href="http://ellislab.com/codeigniter/user-guide/database/active_record.html">in this source</a>.</p>
