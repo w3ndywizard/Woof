@@ -191,7 +191,7 @@
 			$query = $this->db->query($sqlcmd);
 			
 			$this->db->flush_cache();			
-			return $query->result();	
+			return $query;
 		}
 		
 		protected function ARmax($field, $command=null)
@@ -260,8 +260,8 @@
 		}
 		protected function ARcount($command=null)
 		{			
-			if (!empty($conditions))				
-				$this->createCommand($conditions);
+			if (!empty($command))				
+				$this->createCommand($command);
 			
 			$count = $this->db->count_all_results($this->tableName);
 			
@@ -1008,11 +1008,7 @@
 		 */
 		function findBySql($sqlCommand)
 		{
-			$result = $this->ARfindBySql($sqlCommand);
-			if ($this->useDefaultResult)
-				return $result;							
-			else
-				return $this->formatObject($result);
+			return $this->ARfindBySql($sqlCommand);
 		} 
 		
 		/**
@@ -1048,7 +1044,7 @@
 		 * @param	criteria | array	Query commands
 		 * @return	numeric
 		 */
-		function min($field, $command)
+		function min($field, $command=null)
 		{
 			return $this->ARmin($field, $command);
 		}
@@ -1061,7 +1057,7 @@
 		 * @param	criteria | array	Query commands
 		 * @return	numeric
 		 */
-		function avg($field, $command)
+		function avg($field, $command=null)
 		{
 			return $this->ARavg($field, $command);
 		}
@@ -1074,7 +1070,7 @@
 		 * @param	criteria | array	Query commands
 		 * @return	numeric
 		 */
-		function sum($field, $command)
+		function sum($field, $command=null)
 		{
 			return $this->ARsum($field, $command);
 		}
