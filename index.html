@@ -658,13 +658,15 @@ $criteria = array(
 <hr><h1>
 <a name="binding-foreign-key" class="anchor" href="#binding-foreign-key"><span class="octicon octicon-link"></span></a>Binding Foreign Key</h1>
 
-<p>Woof provide functional to retrieve record of Foreign key value. As image that show on below indicate  about database relation between two tables.</p>
+<p>Woof provide function to retrieve record of Foreign key value. As image that show on below indicate  about database relation between two tables.</p>
 
 <p><img src="http://farm8.staticflickr.com/7303/9267455688_17a25e9f22_m.jpg" alt="relation"></p>
 
-<p>You can retrieve record by Woof's functional easily without create another function to get data.</p>
+<p>You can retrieve record by this feature easily without create another function to get data.</p>
 
 <pre><code>$this-&gt;load-&gt;model('person');
+// Attribute "useDefaultResult" requires to set FALSE
+$this-&gt;person-&gt;useDefaultResult = false;
 $row = $this-&gt;person-&gt;findByPk(1);
 
 echo $row-&gt;id . '&lt;br /&gt;';
@@ -678,6 +680,10 @@ echo $row-&gt;state_id;
 
 // Just add () to make attribute to method
 echo $row-&gt;state_id()-&gt;state_id . ' ' . $row-&gt;state_id()-&gt;state_name; // 1 texas
+
+// You can specific fields by pass string or array parameter.
+echo $row-&gt;state_id('state_name')-&gt;state_name;
+echo $row-&gt;state_id(array('state_name'))-&gt;state_name;
 </code></pre>
 
 <h3>
@@ -720,7 +726,11 @@ echo $row-&gt;state_id()-&gt;state_id . ' ' . $row-&gt;state_id()-&gt;state_name
 <li>$destAttr - Primary key name in related class</li>
 <li>$class - Related class</li>
 <li>$path - if model has sub folder, you can specify path here</li>
-</ul>
+</ul><p>If use this feature, You must always set attribute "useDefaultResult" to false is required after load any model.</p>
+
+<pre><code>$this-&gt;load-&gt;model('person');
+**$this-&gt;person-&gt;useDefaultResult = FALSE;**
+</code></pre>
         </section>
 
         <aside id="sidebar">
