@@ -73,13 +73,15 @@
 								$arguments[0] = null;
 							// Result type parameter
 							if (!isset($arguments[1]))
-								$arguments[1] = true;				
+								$arguments[1] = false;
 							
 							// Retrieve row
 							$obj = new $this->bindAttrs[$function]['class'];
 							
-							if ((bool)$arguments[1] == FALSE)						
-								$obj->useDefaultResult = false;
+							if ((bool)$arguments[1])						
+								$obj->useDefaultResult = true;
+							else 
+								$obj->useDefaultResult = false;							
 							
 							return $obj->find(array($this->bindAttrs[$function]['destAttr'] => $this->$function), $arguments[0]);
 							
