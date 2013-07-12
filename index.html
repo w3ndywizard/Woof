@@ -249,6 +249,8 @@ echo $row-&gt;fname . ‘ ‘ . $row-&gt;sname // Petit
 
 <p>Get record using SQL query command;</p>
 
+<p><strong>Note: ** Return type is <em>CI_DB_mysql_result</em>, you can access result by using result(), row() etc.. that refer on <a href="http://ellislab.com/codeigniter/user-guide/database/results.html">Codeigniter' result</a> and This method not support **FK Binding</strong> feature.</p>
+
 <p><em>Syntax</em></p>
 
 <pre><code>array findBySql(string $sqlcommand);
