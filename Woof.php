@@ -68,12 +68,19 @@
 														
 							require_once APPPATH . '/models/' . $this->bindAttrs[$function]['path'] . '/' . $this->bindAttrs[$function]['class'] . '.php';
 
-							// fields parameters
+							// fields parameter
 							if (!isset($arguments[0]))								
-								$arguments[0] = null;							
+								$arguments[0] = null;
+							// Result type parameter
+							if (!isset($arguments[1]))
+								$arguments[1] = true;				
 							
 							// Retrieve row
-							$obj = new $this->bindAttrs[$function]['class'];										
+							$obj = new $this->bindAttrs[$function]['class'];
+							
+							if ((bool)$arguments[1] == FALSE)						
+								$obj->useDefaultResult = false;
+							
 							return $obj->find(array($this->bindAttrs[$function]['destAttr'] => $this->$function), $arguments[0]);
 							
 						} else 
@@ -392,11 +399,18 @@
 				switch ($joinType)
 				{
 					case 'join':
-						{																				
+						{																											
 							$arr = explode(':', $str);
 							if (isset($arr[2])){
 								
-								if ($arr[2] !== 'left' || $arr[2] !== 'right')
+								$joinCommand = array('left','left_join','left join', 
+													'right','right_join','right join',
+													'inner','inner_join','inner join',
+													'outer','outer_join','outer join',
+													'left_outer','left outer',
+													'right_outer','right outer');
+								
+								if (!in_array(strtolower($arr[2]), $joinCommand, true))
 									$arr[2] = null;
 							} else
 								$arr[2] = null;
@@ -405,7 +419,7 @@
 						}
 						break;
 					case 'left': case 'left_join': case 'left join': case 'right': case 'right_join': case 'right join':
-					case 'inner': case 'inner join': case 'inner join': case 'outer': case 'outer_join': case 'outer join':
+					case 'inner': case 'inner_join': case 'inner join': case 'outer': case 'outer_join': case 'outer join':
 					case 'left_outer': case 'left outer': case 'right_outer': case 'right outer':
 						{
 							return explode(':', $str);
@@ -677,12 +691,14 @@
 								}								
 							}
 							break;
-						default:
-							$this->db->where($key, $value);
+						default:															
+							$this->db->where($key, $value);							
 							break;
 					}		
 				} // end foreach
-			}
+			} else
+				// Default command when string input
+				$this->db->where($command);
 		}		
 		
 	}
@@ -1170,7 +1186,7 @@
 	 * @author		KKK
 	 * @category	Libraries	 
 	 * @copyright	Copyright (c) 2013, KKK.
-	 * @version		1.0	 
+	 * @version		1.1
 	 **/
 	class Woof extends WModel
 	{
