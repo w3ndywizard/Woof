@@ -1,4 +1,5 @@
 <?php
+// a comment
 	class Criteria
 	{
 		public $select;
